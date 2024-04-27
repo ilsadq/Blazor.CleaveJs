@@ -24,8 +24,8 @@ However, this isn't meant to replace any validation or mask library, you should 
 
 `<script src="_content/Blazor.CleaveJs/cleave.js"></script>`
 
+`builder.Services.AddScoped<CleaveJsProvider>();`
+
 *Optional
 
 `<script src="_content/Blazor.CleaveJs/addons/cleave-phone.ac.js"></script>`
-
-`builder.Services.AddScoped<CleaveJsProvider>();`
