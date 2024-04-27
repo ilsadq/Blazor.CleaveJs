@@ -1,0 +1,76 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<div>
+    <h4>Credit card number formatting</h4>
+    <CleaveWrapper CreditCard="true" OnCreditCardTypeChanged="(type) => _type = type">
+        <input id="@context" />
+    </CleaveWrapper>
+
+    <div>@_type</div>
+</div>
+
+<div>
+    <h4>Phone number formatting</h4>
+    <CleaveWrapper Phone="true" PhoneRegionCode="PhoneRegionCodeType.Ac">
+        <input id="@context" />
+    </CleaveWrapper>
+</div>
+
+<div>
+    <h4>Date formatting</h4>
+    <CleaveWrapper Date="true" Delimiter="-" DatePattern="@(["Y", "m", "d"])">
+        <input id="@context" />
+    </CleaveWrapper>
+    <CleaveWrapper Date="true" DatePattern="@(["m", "y"])">
+        <input id="@context" />
+    </CleaveWrapper>
+</div>
+
+<div>
+    <h4>Time formatting</h4>
+    <CleaveWrapper Time="true" TimePattern="@(["h", "m", "s"])">
+        <input id="@context" />
+    </CleaveWrapper>
+    <CleaveWrapper Time="true" TimePattern="@(["h", "m"])">
+        <input id="@context" />
+    </CleaveWrapper>
+</div>
+
+<div>
+    <h4>Numeral formatting</h4>
+    <CleaveWrapper Numeral="true" NumeralThousandsGroupStyle="NumeralThousandsGroupStyleType.Thousand">
+        <input id="@context" />
+    </CleaveWrapper>
+    <CleaveWrapper Numeral="true" NumeralThousandsGroupStyle="NumeralThousandsGroupStyleType.Lakh">
+        <input id="@context" />
+    </CleaveWrapper>
+    <CleaveWrapper Numeral="true" NumeralThousandsGroupStyle="NumeralThousandsGroupStyleType.Wan">
+        <input id="@context" />
+    </CleaveWrapper>
+</div>
+
+<div>
+    <h4>Custom options</h4>
+    <CleaveWrapper Blocks="[4,4,4,4]" Uppercase="true">
+        <input id="@context" />
+    </CleaveWrapper>
+    <CleaveWrapper Blocks="[4,4,4]" Uppercase="true" Delimiter="!">
+        <input id="@context" />
+    </CleaveWrapper>
+    <CleaveWrapper Blocks="[4,4,4]" Uppercase="true" Delimiters="@([".", "-", "."])">
+        <input id="@context" />
+    </CleaveWrapper>
+    <CleaveWrapper Prefix="$" Numeral="true">
+        <input id="@context" />
+    </CleaveWrapper>
+    <CleaveWrapper NumeralDecimalMark="^" Numeral="true">
+        <input id="@context" />
+    </CleaveWrapper>
+</div>
+
+@code {
+    private string? _type;
+
+}

@@ -1,0 +1,151 @@
+﻿@using Microsoft.JSInterop
+@ChildContent(Id)
+
+@code {
+
+    private DotNetObjectReference<CleaveWrapper> objRef;
+    private CleaveSettingsModel _settings = new();
+
+    public string Id => $"cleave-{GetHashCode()}";
+
+    #region Props
+
+    [Parameter] public required RenderFragment<string> ChildContent { get; set; }
+
+    [Parameter]
+    public int[]? Blocks
+    {
+        get => _settings.Blocks;
+        set => _settings.Blocks = value;
+    }
+
+    [Parameter]
+    public bool? Numeral
+    {
+        get => _settings.Numeral;
+        set => _settings.Numeral = value;
+    }
+
+    [Parameter]
+    public string? Value
+    {
+        get => _settings.Value;
+        set => _settings.Value = value;
+    }
+
+    [Parameter]
+    public string? Delimiter
+    {
+        get => _settings.Delimiter;
+        set => _settings.Delimiter = value;
+    }
+
+    [Parameter]
+    public bool? Date
+    {
+        get => _settings.Date;
+        set => _settings.Date = value;
+    }
+
+    [Parameter]
+    public string[]? DatePattern
+    {
+        get => _settings.DatePattern;
+        set => _settings.DatePattern = value;
+    }
+
+    [Parameter]
+    public bool? Time
+    {
+        get => _settings.Time;
+        set => _settings.Time = value;
+    }
+
+    [Parameter]
+    public string[]? TimePattern
+    {
+        get => _settings.TimePattern;
+        set => _settings.TimePattern = value;
+    }
+
+    [Parameter]
+    public NumeralThousandsGroupStyleType? NumeralThousandsGroupStyle
+    {
+        get => _settings.NumeralThousandsGroupStyle;
+        set => _settings.NumeralThousandsGroupStyle = value;
+    }
+
+    [Parameter]
+    public bool? Uppercase
+    {
+        get => _settings.Uppercase;
+        set => _settings.Uppercase = value;
+    }
+
+    [Parameter]
+    public string? Prefix
+    {
+        get => _settings.Prefix;
+        set => _settings.Prefix = value;
+    }
+
+    [Parameter]
+    public bool? CreditCard
+    {
+        get => _settings.CreditCard;
+        set => _settings.CreditCard = value;
+    }
+
+    [Parameter]
+    public bool? Phone
+    {
+        get => _settings.Phone;
+        set => _settings.Phone = value;
+    }
+
+    [Parameter]
+    public PhoneRegionCodeType? PhoneRegionCode
+    {
+        get => _settings.PhoneRegionCode;
+        set => _settings.PhoneRegionCode = value;
+    }
+
+    [Parameter]
+    public string[]? Delimiters
+    {
+        get => _settings.Delimiters;
+        set => _settings.Delimiters = value;
+    }
+
+    [Parameter]
+    public string? NumeralDecimalMark
+    {
+        get => _settings.NumeralDecimalMark;
+        set => _settings.NumeralDecimalMark = value;
+    }
+
+    [Parameter] public EventCallback<string?> OnCreditCardTypeChanged { get; set; }
+
+    #endregion
+
+    [Inject] public CleaveJsProvider CleaveJs { get; set; }
+
+    protected override void OnInitialized()
+    {
+        objRef = DotNetObjectReference.Create(this);
+        base.OnInitialized();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await CleaveJs.SetInput("#" + Id, _settings, objRef);
+        }
+        await base.OnAfterRenderAsync(firstRender);
+    }
+
+    [JSInvokable]
+    public void CreditCardTypeChangedHandler(string type) => OnCreditCardTypeChanged.InvokeAsync(type);
+
+}
