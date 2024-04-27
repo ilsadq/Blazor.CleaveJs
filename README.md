@@ -29,3 +29,64 @@ However, this isn't meant to replace any validation or mask library, you should 
 *Optional
 
 `<script src="_content/Blazor.CleaveJs/addons/cleave-phone.ac.js"></script>`
+
+
+# Examples
+
+```html
+<CleaveWrapper CreditCard="true" OnCreditCardTypeChanged="(type) => _type = type">
+    <input id="@context" />
+</CleaveWrapper>
+
+<CleaveWrapper Phone="true" PhoneRegionCode="PhoneRegionCodeType.Ac">
+    <input id="@context" />
+</CleaveWrapper>
+
+<CleaveWrapper Date="true" Delimiter="-" DatePattern="@(["Y", "m", "d"])">
+    <input id="@context" />
+</CleaveWrapper>
+
+<CleaveWrapper Date="true" DatePattern="@(["m", "y"])">
+    <input id="@context" />
+</CleaveWrapper>
+
+<CleaveWrapper Time="true" TimePattern="@(["h", "m", "s"])">
+    <input id="@context" />
+</CleaveWrapper>
+
+<CleaveWrapper Time="true" TimePattern="@(["h", "m"])">
+    <input id="@context" />
+</CleaveWrapper>
+
+<CleaveWrapper Numeral="true" NumeralThousandsGroupStyle="NumeralThousandsGroupStyleType.Thousand">
+    <input id="@context" />
+</CleaveWrapper>
+
+<CleaveWrapper Numeral="true" NumeralThousandsGroupStyle="NumeralThousandsGroupStyleType.Lakh">
+    <input id="@context" />
+</CleaveWrapper>
+    
+<CleaveWrapper Numeral="true" NumeralThousandsGroupStyle="NumeralThousandsGroupStyleType.Wan">
+    <input id="@context" />
+</CleaveWrapper>
+
+<CleaveWrapper Blocks="[4,4,4,4]" Uppercase="true">
+    <input id="@context" />
+</CleaveWrapper>
+
+<CleaveWrapper Blocks="[4,4,4]" Uppercase="true" Delimiter="!">
+    <input id="@context" />
+</CleaveWrapper>
+
+<CleaveWrapper Blocks="[4,4,4]" Uppercase="true" Delimiters="@([".", "-", "."])">
+    <input id="@context" />
+</CleaveWrapper>
+
+<CleaveWrapper Prefix="$" Numeral="true">
+    <input id="@context" />
+</CleaveWrapper>
+
+<CleaveWrapper NumeralDecimalMark="^" Numeral="true">
+    <input id="@context" />
+</CleaveWrapper>
+```
