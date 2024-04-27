@@ -38,7 +38,7 @@ However, this isn't meant to replace any validation or mask library, you should 
     <input id="@context" />
 </CleaveWrapper>
 
-<CleaveWrapper Phone="true" PhoneRegionCode="PhoneRegionCodeType.Ac">
+<CleaveWrapper Phone="true" PhoneRegionCode="AC">
     <input id="@context" />
 </CleaveWrapper>
 

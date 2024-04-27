@@ -18,6 +18,6 @@ public class CleaveSettingsModel
     public string? Prefix { get; set; }
     public bool? CreditCard { get; set; }
     public bool? Phone { get; set; }
-    public PhoneRegionCodeType? PhoneRegionCode { get; set; }
+    public string? PhoneRegionCode { get; set; }
     public string? NumeralDecimalMark { get; set; }
 }
