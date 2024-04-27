@@ -2,6 +2,8 @@
 
 Cleave.js has a simple purpose: to help you format input text content automatically.
 
+[CleaveJs demo site](https://nosir.github.io/cleave.js/)
+
 # Features
 
 - Credit card number formatting
@@ -18,4 +20,12 @@ However, this isn't meant to replace any validation or mask library, you should 
 
 # Installation
 
+`dotnet add package Blazor.CleaveJs`
 
+`<script src="_content/Blazor.CleaveJs/cleave.js"></script>`
+
+*Optional
+
+`<script src="_content/Blazor.CleaveJs/addons/cleave-phone.ac.js"></script>`
+
+`builder.Services.AddScoped<CleaveJsProvider>();`
