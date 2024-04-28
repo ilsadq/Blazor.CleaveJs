@@ -13,7 +13,11 @@ public class CleaveSettingsModel
     public bool? Time { get; set; }
     public string[]? TimePattern { get; set; }
     public bool? Numeral { get; set; }
-    public NumeralThousandsGroupStyleType? NumeralThousandsGroupStyle { get; set; }
+    /// <summary>
+    /// List of numeral thousands group style type
+    /// <see cref="NumeralThousandsGroupStyleType"/>
+    /// </summary>
+    public string? NumeralThousandsGroupStyle { get; set; }
     public bool? Uppercase { get; set; }
     public string? Prefix { get; set; }
     public bool? CreditCard { get; set; }

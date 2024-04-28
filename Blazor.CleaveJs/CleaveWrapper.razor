@@ -1,4 +1,5 @@
 ﻿@using Microsoft.JSInterop
+
 @ChildContent(Id)
 
 @code {
@@ -69,7 +70,7 @@
     }
 
     [Parameter]
-    public NumeralThousandsGroupStyleType? NumeralThousandsGroupStyle
+    public string? NumeralThousandsGroupStyle
     {
         get => _settings.NumeralThousandsGroupStyle;
         set => _settings.NumeralThousandsGroupStyle = value;

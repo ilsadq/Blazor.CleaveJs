@@ -1,13 +1,8 @@
-﻿using System.Runtime.Serialization;
+﻿namespace Blazor.CleaveJs;
 
-namespace Blazor.CleaveJs;
-
-public enum NumeralThousandsGroupStyleType
+public static class NumeralThousandsGroupStyleType
 {
-    [EnumMember(Value = "thousand")]
-    Thousand,
-    [EnumMember(Value = "lakh")]
-    Lakh,
-    [EnumMember(Value = "wan")]
-    Wan
+    public const string Thousand = "thousand";
+    public const string Lakh = "lakh";
+    public const string Wan = "wan";
 }
